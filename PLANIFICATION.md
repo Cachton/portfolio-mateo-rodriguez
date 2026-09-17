@@ -14,10 +14,16 @@ Je pense utiliser du css pur dans mon portfolio car je souhaite que mon site soi
 - **Type d'animation :** Fondu d'oppacité 30% à 100%
 - **Déclencheur :** Load de la page
 
-### Hover des projets
+### Hover des projets option 1 
 
-- **Élément à animer :**  Hover le nom du projet avec une courte description et quelques logos pour definir quels logiciels utilisés.
+- **Élément à animer :**  Hover le nom du projet avec une courte description et quelques logos pour definir quels logiciels utilisés. L'image est floutée par un overlay qui crée un contraste avec les infos écrites qui apparaissent.
 - **Type d'animation :** À tester, un fade in très rapide d'une oppacité de 0% à 100% en 500ms.
+- **Déclencheur :** Hover sur l'image.
+
+### Hover des projets option 2
+
+- **Élément à animer :**  Hover le nom du projet avec une courte description et quelques logos pour definir quels logiciels utilisés. Une petite boite noire qui apparait dans le coin basa à gauche ou à droite avec du texte dedans.
+- **Type d'animation :** À tester, le petit container noir sort de la gauche ou du bas et slide into place au hover de la photo (carte).
 - **Déclencheur :** Hover sur l'image.
 
 ## Structure de navigation
