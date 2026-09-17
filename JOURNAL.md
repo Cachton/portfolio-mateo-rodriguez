@@ -1,4 +1,4 @@
-## Questions posées à chaque cours
+## Questions posées à chaque projet
 
 1
 Qu'est-ce que j'ai accompli depuis le dernier bloc?
