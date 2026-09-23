@@ -1,0 +1,55 @@
+@font-face {
+    font-family: Coolvetica;
+    src: url(fonts\Coolvetica_Rg.otf);
+}
+
+@font-face {
+    font-family: ChackraPetch;
+    src: url(fonts\ChackraPetch-Regular.ttf);
+}
+
+* {
+    color: #fff;
+    font-family: ChackraPetch, sans-serif;
+}
+
+header {
+    margin: 5%;
+    display: flex;
+    max-width: 100%;
+}
+
+body {
+    background-color: #000;
+}
+
+.colonneHeader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: #fff solid 3px;
+    max-width: 40%;
+}
+
+h1 {
+    font-family: Coolvetica, sans-serif;
+    font-size: 5vw;
+    margin-bottom: 10px;
+}
+
+li {
+    list-style-type: none;
+    margin: 25px;
+}
+
+.professions {
+    font-size: 1.5em;
+    margin-top: 10px;
+    display: flex;
+}
+
+footer {
+    border-top: 3px solid #fff;
+    margin: 5%;
+    font-size: 1.5em;
+}
