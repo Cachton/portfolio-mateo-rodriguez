@@ -1,6 +1,6 @@
 @font-face {
     font-family: Coolvetica;
-    src: url(fonts\Coolvetica_Rg.otf);
+    src: url(fonts\coolvetica.ttf);
 }
 
 @font-face {
@@ -17,6 +17,8 @@ header {
     margin: 5%;
     display: flex;
     max-width: 100%;
+    justify-content: space-between;
+
 }
 
 body {
@@ -26,15 +28,18 @@ body {
 .colonneHeader {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    border: #fff solid 3px;
-    max-width: 40%;
+    width: 40%;
 }
 
 h1 {
     font-family: Coolvetica, sans-serif;
-    font-size: 5vw;
+    font-size: 135px;
+    min-width: 300px;
     margin-bottom: 10px;
+    width: 1%;
+    letter-spacing: 5px;
+    line-height: 100px;
+    font-weight: normal;
 }
 
 li {
@@ -46,6 +51,35 @@ li {
     font-size: 1.5em;
     margin-top: 10px;
     display: flex;
+}
+
+main {
+    margin: 5%;
+    display: flex;
+    flex-direction: column;
+}
+
+h2 {
+    font-family: Coolvetica, sans-serif;
+    font-size: 4vw;
+    margin-bottom: 10px;
+    width: 1%;
+    letter-spacing: 3px;
+    line-height: 100px;
+    font-weight: normal;
+    margin-top: 0;
+    margin-left: 5%;
+}
+
+.row01 {
+    display: flex;
+    max-width: 100%;
+    justify-content: space-between;
+    margin: 5%;
+}
+
+.projet_image {
+    max-width: 30%;
 }
 
 footer {
