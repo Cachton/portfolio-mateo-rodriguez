@@ -1,0 +1,38 @@
+.page-projet__retour {
+    display: inline-block;
+    margin: 5%;
+    color: #fff;
+}
+
+.page-projet {
+    margin: 5%;
+}
+
+.page-projet__article {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.page-projet__article h1 {
+    width: auto;
+    margin: 0 0 2rem;
+}
+
+.page-projet__article img {
+    display: block;
+    width: 100%;
+    max-height: 70vh;
+    object-fit: contain;
+}
+
+.page-projet__article p {
+    max-width: 700px;
+    font-size: 1.25rem;
+    line-height: 1.5;
+}
+
+.page-projet__article .page-projet__categorie {
+    margin-bottom: 0;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
