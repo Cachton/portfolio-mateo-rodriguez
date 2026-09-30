@@ -30,6 +30,14 @@ function extraireImage(valeur) {
     return '';
 }
 
+function normaliserNomChamp(nom) {
+    return nom
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .toLowerCase()
+        .replace(/\s+/g, '');
+}
+
 async function recupererEnregistrements() {
     const baseId = process.env.AIRTABLE_BASE_ID;
     const tableName = encodeURIComponent(process.env.AIRTABLE_TABLE_NAME);
@@ -70,7 +78,9 @@ async function synchroniser() {
 
     const enregistrements = await recupererEnregistrements();
     const projets = enregistrements.map((enregistrement) => {
-        const champs = enregistrement.fields || {};
+        const champs = Object.fromEntries(
+            Object.entries(enregistrement.fields || {}).map(([nom, valeur]) => [normaliserNomChamp(nom), valeur])
+        );
         const titre = champs.titre || champs.nom || 'Projet sans titre';
 
         return {
@@ -83,6 +93,12 @@ async function synchroniser() {
             colonne: String(champs.colonne || '1')
         };
     }).filter((projet) => projet.image);
+
+    console.log(`${enregistrements.length} enregistrement(s) Airtable reçu(s).`);
+
+    if (enregistrements.length > 0 && projets.length === 0) {
+        throw new Error('Aucun projet ne contient une image. Vérifie que le champ s’appelle image et contient une pièce jointe ou une URL.');
+    }
 
     const { writeFile } = await import('node:fs/promises');
 

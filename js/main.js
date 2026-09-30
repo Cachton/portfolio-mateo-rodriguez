@@ -20,6 +20,13 @@ function creerCarteProjet(projet) {
 }
 
 function afficherProjets(projets) {
+    grille.replaceChildren();
+
+    if (projets.length === 0) {
+        grille.textContent = 'Aucun projet disponible.';
+        return;
+    }
+
     const colonnes = [
         document.createElement('ul'),
         document.createElement('ul')
