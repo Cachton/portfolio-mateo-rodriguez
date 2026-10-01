@@ -74,10 +74,8 @@ h2 {
 
 /* Grille principale des projets */
 .projets__grille {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 2rem;
-    align-items: start;
+    column-count: 2;
+    column-gap: 2rem;
 }
 
 /* Colonnes indépendantes */
@@ -94,6 +92,8 @@ h2 {
 .projet {
     display: block;
     margin: 0;
+    margin-bottom: 2rem;
+    break-inside: avoid;
 }
 
 .projet a {
@@ -110,7 +110,7 @@ h2 {
 /* Adaptation aux petits écrans */
 @media (max-width: 700px) {
     .projets__grille {
-        grid-template-columns: 1fr;
+        column-count: 1;
     }
 }
 

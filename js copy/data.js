@@ -25,12 +25,82 @@ async function init() {
 
     //
     projectsArray.forEach(project => {
-        const projectCard = document.createElement('div');
-        projectCard.textContent = project.titre;
+        const projectId = project.id ?? project.identifiant;
+        const projectCard = document.createElement('article');
+        const projectLink = document.createElement('a');
+        const projectMedia = createProjectMedia(project.image, project.alt || project.titre);
+        const projectInfos = document.createElement('div');
+        const projectTitle = document.createElement('h3');
+        const projectCategory = document.createElement('p');
+
+        projectCard.className = 'projet';
+        projectLink.className = 'projet__lien';
+        projectLink.href = `projet.html?id=${encodeURIComponent(projectId)}`;
+        projectLink.setAttribute('aria-label', `Voir le projet ${project.titre}`);
+
+        projectTitle.className = 'projet__titre';
+        projectTitle.textContent = project.titre;
+        projectCategory.className = 'projet__categorie';
+        projectCategory.textContent = project.categorie || project.category || '';
+
+        projectInfos.className = 'projet__infos';
+        projectInfos.append(projectTitle, projectCategory);
+        projectLink.append(projectMedia, projectInfos);
+        projectCard.appendChild(projectLink);
         document.querySelector(`.projets__grille`).appendChild(projectCard);
     });
 
 
+}
+
+function createProjectMedia(image, altText) {
+    const attachment = getAttachment(image);
+
+    if (isVideoAttachment(attachment)) {
+        const projectVideo = document.createElement('video');
+
+        projectVideo.className = 'projet__image';
+        projectVideo.src = attachment.url;
+        projectVideo.autoplay = true;
+        projectVideo.muted = true;
+        projectVideo.loop = true;
+        projectVideo.preload = 'metadata';
+        projectVideo.playsInline = true;
+        projectVideo.disablePictureInPicture = true;
+        projectVideo.controlsList.add('nofullscreen');
+        projectVideo.setAttribute('aria-label', altText || 'Vidéo du projet');
+        projectVideo.addEventListener('contextmenu', event => event.preventDefault());
+        return projectVideo;
+    }
+
+    const projectImage = document.createElement('img');
+
+    projectImage.className = 'projet__image';
+    projectImage.src = attachment.url;
+    projectImage.alt = altText || 'Image du projet';
+    return projectImage;
+}
+
+function getAttachment(image) {
+    if (typeof image === 'string') {
+        return { url: image, type: '', filename: image };
+    }
+
+    if (Array.isArray(image) && image[0]) {
+        return {
+            url: image[0].url || image[0].thumbnails?.large?.url || '',
+            type: image[0].type || '',
+            filename: image[0].filename || ''
+        };
+    }
+
+    return { url: '', type: '', filename: '' };
+}
+
+function isVideoAttachment(attachment) {
+    return attachment.type.startsWith('video/')
+        || /\.(mp4|webm|ogg|mov)(?:$|[?#])/i.test(attachment.filename)
+        || /\.(mp4|webm|ogg|mov)(?:$|[?#])/i.test(attachment.url);
 }
 
 init();
