@@ -15,6 +15,22 @@ async function fetchData() {
 //
 async function init() {
     let projectsArray = [];
+    const projectGrid = document.querySelector('.projets__grille');
+
+    if (!projectGrid) {
+        return;
+    }
+
+    projectGrid.replaceChildren();
+
+    const projectColumns = [1, 2].map(columnNumber => {
+        const projectColumn = document.createElement('section');
+
+        projectColumn.className = 'projets__colonne';
+        projectColumn.setAttribute('aria-label', `Colonne ${columnNumber}`);
+        projectGrid.appendChild(projectColumn);
+        return projectColumn;
+    });
     const projects = await fetchData();
     projects.records.forEach(project => {
         projectsArray.push(project.fields);
@@ -47,7 +63,9 @@ async function init() {
         projectInfos.append(projectTitle, projectCategory);
         projectLink.append(projectMedia, projectInfos);
         projectCard.appendChild(projectLink);
-        document.querySelector(`.projets__grille`).appendChild(projectCard);
+        const columnNumber = Number(project.colonne) === 2 ? 2 : 1;
+
+        projectColumns[columnNumber - 1].appendChild(projectCard);
     });
 
 
