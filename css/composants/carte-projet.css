@@ -28,7 +28,7 @@
     justify-content: space-between;
     gap: 1rem;
     padding: 1rem;
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.95));
     opacity: 0;
     pointer-events: none;
     visibility: hidden;
@@ -40,6 +40,7 @@
     margin: 0;
     font-size: 2.67vw;
     line-height: 1.2;
+    text-shadow: 0 2px 4px rgb(0 0 0 / 80%);
 }
 
 .projet__categorie {
@@ -47,6 +48,7 @@
     font-size: 2.67vw;
     text-align: right;
     line-height: 1.2;
+    text-shadow: 0 0px 0px rgb(0 0 0 / 80%);
 }
 
 .projet__lien:hover .projet__infos,

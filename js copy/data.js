@@ -9,6 +9,10 @@ async function fetchData() {
             Authorization: `Bearer ${AIRTABLE_TOKEN}`
         }
     });
+    if (!response.ok) {
+        throw new Error(`Impossible de récupérer les projets (${response.status}).`);
+    }
+
     return await response.json();
 }
 
@@ -31,10 +35,16 @@ async function init() {
         projectGrid.appendChild(projectColumn);
         return projectColumn;
     });
-    const projects = await fetchData();
-    projects.records.forEach(project => {
-        projectsArray.push(project.fields);
-    });
+    try {
+        const projects = await fetchData();
+        projects.records.forEach(project => {
+            projectsArray.push(project.fields);
+        });
+    } catch (error) {
+        projectGrid.textContent = 'Les projets sont momentanément indisponibles.';
+        console.error(error);
+        return;
+    }
 
     //fait le tri dans les projets selon l'id
     projectsArray.sort((a, b) => a.id - b.id);
@@ -44,7 +54,7 @@ async function init() {
         const projectId = project.id ?? project.identifiant;
         const projectCard = document.createElement('article');
         const projectLink = document.createElement('a');
-        const projectMedia = createProjectMedia(project.image, project.alt || project.titre);
+        const projectMedia = createProjectMedia(project['image carte'], project.alt || project.titre);
         const projectInfos = document.createElement('div');
         const projectTitle = document.createElement('h3');
         const projectCategory = document.createElement('p');
@@ -71,7 +81,7 @@ async function init() {
 
 }
 
-function createProjectMedia(image, altText) {
+function createProjectMedia(image, altText, options = {}) {
     const attachment = getAttachment(image);
 
     if (isVideoAttachment(attachment)) {
@@ -79,9 +89,10 @@ function createProjectMedia(image, altText) {
 
         projectVideo.className = 'projet__image';
         projectVideo.src = attachment.url;
-        projectVideo.autoplay = true;
+        projectVideo.autoplay = options.autoplay ?? true;
         projectVideo.muted = true;
         projectVideo.loop = true;
+        projectVideo.controls = options.controls ?? false;
         projectVideo.preload = 'metadata';
         projectVideo.playsInline = true;
         projectVideo.disablePictureInPicture = true;
@@ -102,6 +113,14 @@ function createProjectMedia(image, altText) {
 function getAttachment(image) {
     if (typeof image === 'string') {
         return { url: image, type: '', filename: image };
+    }
+
+    if (image && typeof image === 'object' && !Array.isArray(image)) {
+        return {
+            url: image.url || image.thumbnails?.large?.url || '',
+            type: image.type || '',
+            filename: image.filename || ''
+        };
     }
 
     if (Array.isArray(image) && image[0]) {
