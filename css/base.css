@@ -1,11 +1,11 @@
 @font-face {
     font-family: Coolvetica;
-    src: url("../assets/fonts/Coolvetica%20Rg.otf") format("opentype");
+    src: url("../assets/images/fonts/Coolvetica%20Rg.otf") format("opentype");
 }
 
 @font-face {
     font-family: ChakraPetch;
-    src: url("../assets/fonts/ChakraPetch-Regular.ttf") format("truetype");
+    src: url("../assets/images/fonts/ChakraPetch-Regular.ttf") format("truetype");
 }
 
 * {
@@ -120,7 +120,15 @@ h2 {
 }
 
 footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     border-top: 3px solid #fff;
     margin: 5%;
     font-size: 1.5em;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
 }

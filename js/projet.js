@@ -110,11 +110,25 @@ function renderProject(project) {
     article.className = 'page-projet__article';
     article.appendChild(title);
 
+    const yearEntry = Object.entries(project).find(([fieldName, value]) => {
+        return fieldName.toLowerCase() === 'year'
+            && value !== null
+            && value !== undefined
+            && value !== '';
+    });
+
     if (project.categorie) {
         const category = document.createElement('p');
         category.className = 'page-projet__categorie';
         category.textContent = `Projet ${project.categorie}`;
         article.appendChild(category);
+    }
+
+    if (yearEntry) {
+        const year = document.createElement('p');
+        year.className = 'page-projet__annee';
+        year.textContent = createFieldValue(yearEntry[1], yearEntry[0]).textContent;
+        article.appendChild(year);
     }
 
     const mainContent = document.createElement('div');
@@ -150,7 +164,8 @@ function renderProject(project) {
     }
 
     Object.entries(project).forEach(([fieldName, value]) => {
-        if (fieldName === 'titre'
+        if (fieldName.toLowerCase() === 'year'
+            || fieldName === 'titre'
             || fieldName === 'categorie'
             || fieldName === 'description 1'
             || fieldName === 'description 2'
