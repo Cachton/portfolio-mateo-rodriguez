@@ -61,7 +61,7 @@ async function init() {
 
         projectCard.className = 'projet';
         projectLink.className = 'projet__lien';
-        projectLink.href = `projet.html?id=${encodeURIComponent(projectId)}`;
+        projectLink.href = `projet.html?id=${encodeURIComponent(projectId)}`; // Le javascript créé un lien vers la page projet.html avec l'id du projet en paramètre
         projectLink.setAttribute('aria-label', `Voir le projet ${project.titre}`);
 
         projectTitle.className = 'projet__titre';

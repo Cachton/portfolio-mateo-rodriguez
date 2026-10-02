@@ -203,14 +203,14 @@ function renderProject(project) {
 }
 
 async function loadProject() {
-    const projectId = new URLSearchParams(window.location.search).get('id');
+    const projectId = new URLSearchParams(window.location.search).get('id'); //Le javasscript récupère l'id du projet séléctionné
 
     if (!projectId) {
         projectPage.textContent = 'Aucun projet n’a été sélectionné.';
         return;
     }
 
-    try {
+    try { // Le javascript récupère les données du projet séléctionné 
         const projects = await fetchData();
         const projectRecord = projects.records.find(record => {
             const project = record.fields;

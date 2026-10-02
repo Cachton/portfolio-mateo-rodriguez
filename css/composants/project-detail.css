@@ -81,7 +81,7 @@ body {
     align-items: start;
 }
 
-.page-projet__contenu > .page-projet__champ--description {
+.page-projet__contenu>.page-projet__champ--description {
     grid-column: 1;
     grid-row: 1;
     align-self: center;
@@ -163,7 +163,7 @@ body {
         grid-template-columns: 1fr;
     }
 
-    .page-projet__contenu > .page-projet__champ--description,
+    .page-projet__contenu>.page-projet__champ--description,
     .page-projet__media--first,
     .page-projet__media--second-row,
     .page-projet__description-2 {
