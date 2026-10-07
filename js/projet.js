@@ -163,6 +163,7 @@ function renderProject(project) {
         article.appendChild(mainContent);
     }
 
+    // ajout des champs supplémentaires du projet
     Object.entries(project).forEach(([fieldName, value]) => {
         if (fieldName.toLowerCase() === 'year'
             || fieldName === 'titre'
@@ -192,6 +193,7 @@ function renderProject(project) {
         article.appendChild(field);
     });
 
+    //Si une image est plus grande que les autres, elle est affichée en bas de la page
     if (largestMedia) {
         const largestMediaGroup = document.createElement('div');
         largestMediaGroup.className = 'page-projet__grande-image';
@@ -199,9 +201,11 @@ function renderProject(project) {
         article.appendChild(largestMediaGroup);
     }
 
+    //fait apparaitre la page projet avec les informations du projet séléctionné
     projectPage.appendChild(article);
 }
 
+// le javascript affiche les infos qu'il a récupéré
 async function loadProject() {
     const projectId = new URLSearchParams(window.location.search).get('id'); //Le javasscript récupère l'id du projet séléctionné
 

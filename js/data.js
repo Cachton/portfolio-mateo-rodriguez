@@ -49,8 +49,8 @@ async function init() {
     //fait le tri dans les projets selon l'id
     projectsArray.sort((a, b) => a.id - b.id);
 
-    //
-    projectsArray.forEach(project => {
+    //le javascript recolte les informations 
+    projectsArray.forEach((project, index) => {
         const projectId = project.id ?? project.identifiant;
         const projectCard = document.createElement('article');
         const projectLink = document.createElement('a');
@@ -59,7 +59,9 @@ async function init() {
         const projectTitle = document.createElement('h3');
         const projectCategory = document.createElement('p');
 
+    // le javascript crée les cartes de projet avec les informations récupérées
         projectCard.className = 'projet';
+        projectCard.style.setProperty('--projet-delai', `${index * 80}ms`);
         projectLink.className = 'projet__lien';
         projectLink.href = `projet.html?id=${encodeURIComponent(projectId)}`; // Le javascript créé un lien vers la page projet.html avec l'id du projet en paramètre
         projectLink.setAttribute('aria-label', `Voir le projet ${project.titre}`);
@@ -78,12 +80,42 @@ async function init() {
         projectColumns[columnNumber - 1].appendChild(projectCard);
     });
 
+    revealProjectCards(projectGrid); // animation des cartes de projet lors du défilement
 
+}
+
+//système de reveal des cartes
+function revealProjectCards(projectGrid) {
+    const projectCards = projectGrid.querySelectorAll('.projet');
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches
+        || !('IntersectionObserver' in window)) {
+        projectCards.forEach(projectCard => projectCard.classList.add('projet--visible'));
+        return;
+    }
+
+    //detection des éléments qui apparaissent
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) {
+                return;
+            }
+
+            entry.target.classList.add('projet--visible');
+            observer.unobserve(entry.target);
+        });
+    }, {
+        rootMargin: '0px 0px -15% 0px',
+        threshold: 0.1
+    });
+
+    projectCards.forEach(projectCard => observer.observe(projectCard));
 }
 
 function createProjectMedia(image, altText, options = {}) {
     const attachment = getAttachment(image);
 
+    //modifications appliquées si le fichier est une vidéo
     if (isVideoAttachment(attachment)) {
         const projectVideo = document.createElement('video');
 
@@ -110,6 +142,7 @@ function createProjectMedia(image, altText, options = {}) {
     return projectImage;
 }
 
+//fonction récupère les informations de l'image
 function getAttachment(image) {
     if (typeof image === 'string') {
         return { url: image, type: '', filename: image };
@@ -134,10 +167,11 @@ function getAttachment(image) {
     return { url: '', type: '', filename: '' };
 }
 
+
 function isVideoAttachment(attachment) {
     return attachment.type.startsWith('video/')
         || /\.(mp4|webm|ogg|mov)(?:$|[?#])/i.test(attachment.filename)
         || /\.(mp4|webm|ogg|mov)(?:$|[?#])/i.test(attachment.url);
 }
 
-init();
+init(); //nom de la fonction qui crée les cartes et les affiches

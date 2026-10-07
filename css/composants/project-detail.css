@@ -154,13 +154,50 @@ body {
 }
 
 @media (max-width: 700px) {
+    .page-projet__retour {
+        margin: 1rem;
+        font-size: 1.25rem;
+    }
+
+    .page-projet {
+        margin: 1rem;
+    }
+
     .a-propos__contenu {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
 
+    .a-propos__contenu h1 {
+        font-size: clamp(3.25rem, 16vw, 6rem);
+        line-height: 0.9;
+    }
+
+    .a-propos__texte {
+        font-size: 1rem;
+    }
+
+    .page-projet__article h1 {
+        width: auto;
+        margin: 2rem 0;
+        padding: 0;
+        font-size: clamp(3rem, 14vw, 5.5rem);
+        line-height: 0.95;
+        text-align: left;
+    }
+
+    .page-projet__annee,
+    .page-projet__categorie {
+        width: auto;
+        margin: 1rem 0;
+        padding: 0;
+        font-size: 1rem;
+        text-align: left;
+    }
+
     .page-projet__contenu {
         grid-template-columns: 1fr;
+        gap: 1rem;
     }
 
     .page-projet__contenu>.page-projet__champ--description,
@@ -168,5 +205,30 @@ body {
     .page-projet__media--second-row,
     .page-projet__description-2 {
         grid-column: 1;
+    }
+
+    .page-projet__contenu>.page-projet__champ--description {
+        grid-row: auto;
+    }
+
+    .page-projet__media--first,
+    .page-projet__media--second-row,
+    .page-projet__description-2 {
+        grid-row: auto;
+    }
+
+    .page-projet__champ {
+        margin-top: 1.5rem;
+    }
+
+    .page-projet__champ p,
+    .page-projet__champ a,
+    .page-projet__description-2,
+    .page-projet__liste {
+        font-size: 1rem;
+    }
+
+    .page-projet__champ--description p {
+        transform: none;
     }
 }

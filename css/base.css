@@ -18,7 +18,7 @@ header {
     display: flex;
     max-width: 100%;
     justify-content: space-between;
-
+    box-sizing: border-box;
 }
 
 body {
@@ -33,7 +33,7 @@ body {
 
 h1 {
     font-family: Coolvetica, sans-serif;
-    font-size: 135px;
+    font-size: clamp(4rem, 9vw, 135px);
     min-width: 300px;
     margin-bottom: 10px;
     width: 1%;
@@ -68,7 +68,7 @@ main {
 
 h2 {
     font-family: Coolvetica, sans-serif;
-    font-size: 4vw;
+    font-size: clamp(2.5rem, 4vw, 4rem);
     margin-bottom: 10px;
     width: 1%;
     letter-spacing: 3px;
@@ -84,6 +84,9 @@ h2 {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 2rem;
+    width: 100%;
+    max-width: 85%;
+    margin-inline: auto;
 }
 
 .projets__colonne {
@@ -112,10 +115,69 @@ h2 {
     object-fit: contain;
 }
 
+@media (max-width: 900px) {
+    .projets__grille {
+        gap: 1.25rem;
+    }
+
+    .projets__colonne {
+        gap: 1.25rem;
+    }
+}
+
 /* Adaptation aux petits écrans */
 @media (max-width: 700px) {
+    header {
+        margin-top: 2rem;
+    }
+
+    .colonneHeader {
+        width: 100%;
+    }
+
+    h1 {
+        width: auto;
+        min-width: 0;
+        font-size: clamp(3.25rem, 16vw, 6rem);
+        line-height: 0.9;
+        letter-spacing: 2px;
+    }
+
+    .professions {
+        flex-wrap: wrap;
+        gap: 0.5rem 1.25rem;
+        font-size: 1.15rem;
+        white-space: normal;
+    }
+
+    .professions li {
+        margin: 0.5rem 0;
+    }
+
+    main {
+        margin: 0 1rem 3rem;
+    }
+
+    h2 {
+        width: auto;
+        margin: 2rem 0;
+        font-size: clamp(2.5rem, 12vw, 4rem);
+        line-height: 1;
+    }
+
     .projets__grille {
         grid-template-columns: 1fr;
+    }
+
+    footer {
+        align-items: flex-start;
+        flex-direction: column;
+        margin: 2rem 1rem;
+        font-size: 1.1rem;
+    }
+
+    footer p {
+        margin: 0;
     }
 }
 
@@ -123,6 +185,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 1rem;
     border-top: 3px solid #fff;
     margin: 5%;
     font-size: 1.5em;
