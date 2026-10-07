@@ -60,3 +60,15 @@ J'ai utilisé "stitch with google" le 2 septembre 2026. Voici les prompts utilis
 4 - Si je n'ai pas le temps de finir ma page PLANIFICATION.md, je finirai ma page PLANIFICATION.md.
 
 5 - Non. Je comprends maintenant la quantitée de travail qui vient s'ajouter avec l'usage de l'AI et sa documentation n'en vaut pas vraiment la peine dans le cadre de ce cours à date.
+
+## remise beta
+
+1 - J'ai créé mon site. Il fonctionne grâce a trois pages HTML, le reste est créé par mon javascript. Il crée dynamiquement des cartes dans ma page principale et des pages projet en fonction de la carte cliquée.
+
+2 - J'ai été amené dans la mauvaise direction par une IA lors de la conception de mon projet. Elle n'utilisait pas la bonne manière de procéder.
+
+3 - J'ai compris comment adéquatement utiliser Copilote en l'empêchant de faire des choses que je ne veux pas. 
+
+4 - La prochaine étape est de créer les animations de mes cartes et ajouter du contenu visuel plus approfondis.
+
+5 - Oui j'ai utilisé l'IA pour m'aider durant la programmation du javascript de mon site. J'ai appris à quel point le javascript peut rendre un site internet dynamique.
