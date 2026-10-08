@@ -1,12 +1,12 @@
 const projectPage = document.querySelector('.page-projet');
 
-function formatFieldName(fieldName) {
+function formatFieldName(fieldName) { //applique une dese majuscules à la première lettre
     return fieldName
         .replace(/[_-]+/g, ' ')
         .replace(/\b\w/g, letter => letter.toUpperCase());
 }
 
-function createFieldValue(value, fieldName) {
+function createFieldValue(value, fieldName) { //le jaavascript crée un champ pour y insérer une valeur
     if (Array.isArray(value)) {
         const attachmentValues = value.filter(item => item && typeof item === 'object' && item.url);
 
@@ -34,7 +34,7 @@ function createFieldValue(value, fieldName) {
             return mediaGroup;
         }
 
-        const list = document.createElement('ul');
+        const list = document.createElement('ul'); //le javascript crée une liste
         list.className = 'page-projet__liste';
         value.forEach(item => {
             const listItem = document.createElement('li');
@@ -55,7 +55,7 @@ function createFieldValue(value, fieldName) {
         return link;
     }
 
-    const paragraph = document.createElement('p');
+    const paragraph = document.createElement('p'); //crée un paragraphe pour y insérer le texte donné sur airtable
     paragraph.textContent = text;
     return paragraph;
 }
@@ -68,7 +68,7 @@ function getFirstAttachment(value) {
     return value && typeof value === 'object' && value.url ? value : null;
 }
 
-function createProjectGallery(project) {
+function createProjectGallery(project) { //le javascript récupère les images donnés airtable
     const orderedAttachments = [
         getFirstAttachment(project['image page 1']),
         getFirstAttachment(project['image page 2']),

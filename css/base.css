@@ -13,7 +13,7 @@
     font-family: ChakraPetch, sans-serif;
 }
 
-header {
+header { /* Mon nom */
     margin: 5% 5% 0;
     display: flex;
     max-width: 100%;
@@ -25,13 +25,13 @@ body {
     background-color: #000;
 }
 
-.colonneHeader {
+.colonneHeader { /* colonne contenant mon nom*/
     display: flex;
     flex-direction: column;
     width: 40%;
 }
 
-h1 {
+h1 { /* mon nom */
     font-family: Coolvetica, sans-serif;
     font-size: clamp(4rem, 9vw, 135px);
     min-width: 300px;
@@ -47,7 +47,7 @@ li {
     margin: 25px;
 }
 
-.professions {
+.professions { /* 3 sous titres de profession sous mon nom*/
     font-size: 1.5em;
     margin-top: 10px;
     display: flex;
@@ -181,7 +181,7 @@ h2 {
     }
 }
 
-footer {
+footer { 
     display: flex;
     align-items: center;
     justify-content: space-between;
