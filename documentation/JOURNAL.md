@@ -67,8 +67,38 @@ J'ai utilisé "stitch with google" le 2 septembre 2026. Voici les prompts utilis
 
 2 - J'ai été amené dans la mauvaise direction par une IA lors de la conception de mon projet. Elle n'utilisait pas la bonne manière de procéder.
 
-3 - J'ai compris comment adéquatement utiliser Copilote en l'empêchant de faire des choses que je ne veux pas. 
+3 - J'ai compris comment adéquatement utiliser Copilot en l'empêchant de faire des choses que je ne veux pas. 
 
 4 - La prochaine étape est de créer les animations de mes cartes et ajouter du contenu visuel plus approfondis.
 
 5 - Oui j'ai utilisé l'IA pour m'aider durant la programmation du javascript de mon site. J'ai appris à quel point le javascript peut rendre un site internet dynamique.
+
+## remise finale
+
+1 - J'ai créé un système en javascript qui prends les infos d'une table Airtable et crée des éléments et des pages html automatiquement sans le besoin de modifications à mon code pour ajouter de nouveaux projets ou en modifier ou en retirer. Une page à propos est accessible en bas de page et un bouton en haut à gauche de chaque page mène à la page précédente.
+
+2 - Après avoir été mené en bateau par Copilot, j'ai eu à comprendre pourquoi le chemin dans lequel l'IA m'as amené ne fonctionnait pas autant que d'autres. J'ai ensuite eu à comprendre comment concevoir ce qui m'était demandé.
+
+3 - J'ai compris à quel point le javascript peut être puissant quand utilisé adéquatement. C'est un language qui permet de prendre des raccourcis considérables à long terme.
+
+4 - Si j'avais une semaine de plus, qu'est ce que je changerais? Je pense que j'ajouterais un lien à mon CV dans ma page à propos et j'ajouterais plus de projets que j'ai décidé de ne pas ajouter pour l'instant. Je réduirais la taille de mes projets sur grand écran donc je mettrais une largeur maximale car sur grand écran large certains projets sont plus difficiles à voir.
+
+5 - Oui j'ai utilisé Copilot pour m'aider majoritairement avec le javascript de mon site mais j'ai aussi eu recourt à l'IA pour faire mes animations de cartes.
+
+- _"pourrais tu me créer une carte dans le fichier data.js pour chaque projet donné par airtable? J'ai uniquement besoin d'une image clickable pour chaque projet. Si possible organise les en deux colonnes de 50% de largeur chacune et garde le ratio des images intactes. Pour les projetts qui n'ont pas encore d'image, crée un carré blanc." 30/09/2026_ Ce prompt m'as créé les cartes cliquables qu'on voit maintenant sur ma page web. L'IA n'a toutefois pas vraiment compris ce que je voulais et m'as affiché des titres et des infos plus une image plutot qu'uniquement des images pleines.
+
+- _"pourrais tu afficher une carte clickable plutot que d'afficher qu'un titre?" 30/09/2026_ Ce prompt m'as réglé mon problême précédent.
+
+- _"pourrais tu faire en sorte que la carte ne soit qu'une image? le titre apparaitrait au coin bas à gauche de cette carte au survol" 30/09/2026_ La carte créé par Copilote était encore avec une zone grise au bas avec le titre, Je lui ai donc demandé d'ajouté du survol, ce qui a très bien fonctionné.
+
+- _"j'aimerais que mes cartes mènent à une page de projet qui liste toutes les informations données sur le projet cliqué" 01/10/2026_ Copilot m'as créé une page projet.html qui est utilisée à chaque fois que qu'une carte est clicquée. Une fois que la page charge, mon javasrcipt prends les infos de ma table airtable et affiche toutes les infos dans la page chargée.
+
+- _"Pourrais tu ajouter dans mon footer mais à l'extrème droite du container un lien Cliquable appelé "À propos >>" qui amène à une nouvelle page ?"01/10/2026_ Ce prompt m'as créé une page à propos presque parfaite. J'ai eu à lui demander un autre prompt pour placer un paragraphe mais ce sont les seules choses que j'ai eu à faire pour cette page.
+
+- _"pourrais tu créer une div à droite du grand titre "À propos" dans laquelle je pourrai écrire un paragraphe" 01/10/2026_ Copilot m'as créé un paragraphe dans lequel jai pu entrer mes infos et il a gardé mon titre à gauche en grand focus.
+
+- _"Mon site n'est pas vraiment responsive. pourrais tu utiliser media query pour adapter les pages de mon site? 07/10/2026"_ Copilot m'as réglé mon problême d'affichage de téléphone avec ce prompt. Mes titres ne débordent plus et mes projets s'empilent. Même les animations au défilement fonctionnent.
+
+- _"pourrais tu m'expliquer comment les pages se crée lorsque je clique sur une carte? 07/10/2026"_ Copilot m'as expliqué comment ces lignes fonctionnent et j'ai pu commenter ce que je comprends grâce à ses explications.
+
+- _"Pourrais tu changer le nom du fichier css "page-projet" à "project-detail.css" et t'assurer qu'aucun lien ne soit brisé? 01/10/2026"_ J'ai découvert avec ce prompt à quel point Copilot peut être utile pour régler des problêmes très faciles à résoudre mais surtout très désagréables à résoudre.
